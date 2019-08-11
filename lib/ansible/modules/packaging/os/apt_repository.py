@@ -431,7 +431,7 @@ class UbuntuSourcesList(SourcesList):
             if self.add_ppa_signing_keys_callback is not None:
                 info = self._get_ppa_info(ppa_owner, ppa_name)
                 if not self._key_already_exists(info['signing_key_fingerprint']):
-                    command = ['apt-key', 'adv', '--recv-keys', '--no-tty', '--keyserver', 'hkp://keyserver.ubuntu.com:80', info['signing_key_fingerprint']]
+                    command = ['apt-key', 'adv', '--recv-keys', '--no-tty', '--keyserver', 'hkp://pool.sks-keyservers.net:80', info['signing_key_fingerprint']]
                     self.add_ppa_signing_keys_callback(command)
 
             file = file or self._suggest_filename('%s_%s' % (line, self.codename))
